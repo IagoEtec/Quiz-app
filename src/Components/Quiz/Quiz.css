@@ -1,71 +1,142 @@
-.container{
+/* ===== RESET ===== */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+/* ===== BODY ===== */
+body {
     height: 100vh;
-    background-image: linear-gradient(#80f5eb, #8f60e6);
+    background: url("SEU-WALLPAPER.jpg") no-repeat center center/cover; /* coloque aqui seu wallpaper */
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
 }
 
-.container{
-    width: 640px;
-    margin: auto;
-    margin-top: 150px;
-    background: white;
-    color: black;
+/* ===== CONTAINER ===== */
+.container {
+    width: 540px; /* menor largura */
+    background: #0d0d0d;
+    color: #f5f5f5;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 20px;
-    padding: 40px 50px;
+    border-radius: 20px;
+    padding: 40px 45px; /* padding reduzido */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.container hr{
+.container:hover {
+    transform: translateY(-6px); /* leve animação ao passar */
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+}
+
+/* ===== DIVISOR ===== */
+.container hr {
     height: 2px;
     border: none;
-    background: gray;
+    background: linear-gradient(to right, transparent, red, transparent);
+    opacity: 0.7;
 }
 
-.containe h2{
-    font-size: 27px;
-    font-weight: 500;
+/* ===== TITULOS ===== */
+.container h2 {
+    font-size: 26px; /* tamanho levemente menor */
+    font-weight: 600;
+    text-align: center;
+    color: #ff1a1a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.container ul li{
+/* ===== LISTA ===== */
+.container ul li {
     display: flex;
     align-items: center;
-    height: 70px;
-    padding-left: 15px;
-    border: 1px solid rgb(99, 99, 99);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 20px;
+    height: 60px; /* menor altura */
+    padding-left: 18px; /* ajuste de padding */
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 18px;
+    font-size: 19px; /* fonte um pouco menor */
     cursor: pointer;
+    transition: all 0.3s ease;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
 }
 
-.container button{
+.container ul li::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 0, 0, 0.2);
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+.container ul li:hover::before {
+    width: 100%;
+}
+
+.container ul li:hover {
+    border-color: #ff1a1a;
+    color: #ff4d4d;
+}
+
+/* ===== BOTÃO ===== */
+.container button {
     margin: auto;
-    width: 250px;
-    height: 65px;
-    background:#36fcca;
+    width: 220px; /* botão menor */
+    height: 60px; /* altura reduzida */
+    background: linear-gradient(135deg, #ff1a1a, #b30000);
     color: white;
-    font-size: 25px;
-    font-weight: 500;
-    border-radius: 8px;
+    font-size: 20px; /* fonte menor */
+    font-weight: 600;
+    border-radius: 12px;
     cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-.container .index{
+.container button:hover {
+    background: linear-gradient(135deg, #ff3333, #e60000);
+    transform: scale(1.05);
+}
+
+/* ===== INDEX ===== */
+.container .index {
     margin: auto;
-    font-size: 18px;
+    font-size: 17px;
+    color: #aaa;
 }
 
-.container .correct{
-    background: #dffff2;
+/* ===== CORRETO / ERRADO ===== */
+.container .correct {
+    background: #0d261a;
     border-color: #00d397;
+    color: #00ffb3;
 }
 
-.container .wrong{
-    background: #ffebeb;
+.container .wrong {
+    background: #260d0d;
     border-color: #ff4a4a;
+    color: #ff8080;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
